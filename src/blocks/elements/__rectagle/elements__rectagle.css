@@ -1,0 +1,11 @@
+.elements__rectagle {
+  border-radius: 10px 10px 0 0;
+  width: 282px;
+  height: 282px;
+  min-height: 282px;
+}
+
+
+.elements__rectagle:hover {
+  cursor: zoom-in;
+}
