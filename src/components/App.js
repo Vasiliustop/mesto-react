@@ -135,9 +135,9 @@ export default function App() {
       </PopupWithForm>
 
       <ImagePopup
-          data={selectedCard ? selectedCard : {}}
-          isOpen={selectedCard && 'popup_active'}
-          onClose={closeAllPopups}
+        data={selectedCard ? selectedCard : {}}
+        isOpen={selectedCard && 'popup_active'}
+        onClose={closeAllPopups}
       />
 
 

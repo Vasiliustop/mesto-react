@@ -1,10 +1,10 @@
 import React from 'react';
 import edit_avatar from '../image/edit_avatar.png'
 import krest from '../image/krest.svg'
-import {api} from './../utils/Api';
+import { api } from './../utils/Api';
 import Card from './Card.js'
 
-// import NewPostElement from './App.js'
+
 
 
 
@@ -15,29 +15,29 @@ export default function Main({
   onEditProfile,
   onAddPlace,
   onCardClick
-  }) {
+}) {
 
-    const [userAvatar, setUserAvatar] = React.useState();
-    const [userName, setUserName] = React.useState();
-    const [userDescription, setUserDescription] = React.useState();
-    const [cards, setCards] = React.useState([]); 
+  const [userAvatar, setUserAvatar] = React.useState();
+  const [userName, setUserName] = React.useState();
+  const [userDescription, setUserDescription] = React.useState();
+  const [cards, setCards] = React.useState([]);
 
 
-    React.useEffect(() => {
-      Promise.all([api.getProfile(), api.getInitialCards()])
+  React.useEffect(() => {
+    Promise.all([api.getProfile(), api.getInitialCards()])
       .then(([user, cards]) => {
         setUserName(user.name);
         setUserDescription(user.about);
         setUserAvatar(user.avatar);
         setCards(cards)
-        
+
       })
       .catch((err) => {
         console.log('err', err);
       })
-    });
+  });
 
-     
+
 
   return (
 
@@ -60,9 +60,9 @@ export default function Main({
       </section>
 
       <section className="elements">
-      {cards.map(item => (
-            <Card key={item._id} data={item} onCardClick={onCardClick}/>
-          ))}
+        {cards.map(item => (
+          <Card key={item._id} data={item} onCardClick={onCardClick} />
+        ))}
       </section>
 
     </main>

@@ -14,7 +14,7 @@ export default class Api {
     }
   }
 
-  getProfile() {                                      
+  getProfile() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
     })
@@ -74,19 +74,19 @@ export default class Api {
         link
       })
     })
-     .then(this._checkRequest)
+      .then(this._checkRequest)
   }
 
   changeAvatar(avatar) { //редактирование аватара
     return fetch(`${this._baseUrl}/users/me/avatar`, {
-        method: 'PATCH',
-        headers: this._headers,
-        body: JSON.stringify(
-          avatar
-        )
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify(
+        avatar
+      )
     })
-        .then(this._checkRequest)
-}
+      .then(this._checkRequest)
+  }
 
 
 
