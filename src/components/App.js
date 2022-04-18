@@ -4,52 +4,36 @@ import Footer from './Footer.js'
 import Main from './Main.js'
 import PopupWithForm from './PopupWithForm.js'
 import ImagePopup from './ImagePopup.js'
-
-
-
-
-
-
-
-
 export default function App() {
 
-
-  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
-  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
-  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [selectedCard, setSelected] = React.useState(null)
 
   function handleEditAvatarClick() {
-    setEditAvatarPopupOpen(true);
+    setIsEditAvatarPopupOpen(true);
   }
 
   function handleEditProfileClick() {
-    setEditProfilePopupOpen(true);
+    setIsEditProfilePopupOpen(true);
   }
 
   function handleAddPlaceClick() {
-    setAddPlacePopupOpen(true);
+    setIsAddPlacePopupOpen(true);
   }
 
-  function handleCardClick(item) {
-    setSelected(item)
+  function handleCardClick(card) {
+    setSelected(card)
   }
 
 
   function closeAllPopups() {
-    setAddPlacePopupOpen(false);
-    setEditProfilePopupOpen(false);
-    setEditAvatarPopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
     setSelected(null)
   }
-
-
-
-
-
-
-
   return (
     <div className="root">
       <Header />
@@ -130,20 +114,14 @@ export default function App() {
           className="popup__input popup__input_avatar-link" required />
         <span id='avatar-error' className="error"></span>
 
-
-
       </PopupWithForm>
 
       <ImagePopup
-        data={selectedCard ? selectedCard : {}}
-        isOpen={selectedCard && 'popup_active'}
+        data={selectedCard || {}}
+        isOpen={selectedCard}
         onClose={closeAllPopups}
       />
-
-
-
     </div>
-
   );
 }
 

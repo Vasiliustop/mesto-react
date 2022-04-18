@@ -17,9 +17,9 @@ export default function Main({
   onCardClick
 }) {
 
-  const [userAvatar, setUserAvatar] = React.useState();
-  const [userName, setUserName] = React.useState();
-  const [userDescription, setUserDescription] = React.useState();
+  const [userAvatar, setUserAvatar] = React.useState(null);
+  const [userName, setUserName] = React.useState(null);
+  const [userDescription, setUserDescription] = React.useState(null);
   const [cards, setCards] = React.useState([]);
 
 
@@ -34,8 +34,8 @@ export default function Main({
       })
       .catch((err) => {
         console.log('err', err);
-      })
-  });
+      }) 
+  },[]);
 
 
 
